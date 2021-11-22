@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="RJT">RJT</string>
+    <string name="signup_msg">By pressing Sign Up you agree with the Terms of Services and Privacy Policy</string>
+    <string name="login">Already have an account?</string>
+    <string name="sign_in_with_mobile">Sign in with mobile</string>
+    <string name="need_an_account">NEED AN ACCOUNT</string>
+    <string name="email">Email</string>
+</resources>

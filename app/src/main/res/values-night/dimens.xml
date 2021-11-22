@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="margin_x_large">32dp</dimen>
+    <dimen name="margin_xx_large">48dp</dimen>
+    <dimen name="check_box_dimen">18dp</dimen>
+    <dimen name="margin_xxxx_large">75dp</dimen>
+    <dimen name="toolbar_height">50dp</dimen>
+</resources>

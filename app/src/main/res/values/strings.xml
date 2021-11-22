@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<resources>
+    <string name="app_name">Project1GroceryApp</string>
+    <string name="get_started">Get Started</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="create_an_account">Create an account</string>
+    <string name="full_name">Full Name</string>
+    <string name="address">Address</string>
+    <string name="last_name">Last Name</string>
+    <string name="mobile">Mobile</string>
+    <string name="Password">Password</string>
+    <string name="RJT">RJT</string>
+    <string name="grocery_app">RJT Grocery Application</string>
+    <string name="grocery_store">GROCERY STORE</string>
+    <string name="sign_up">SIGN UP</string>
+    <string name="signup_msg">By pressing Sign Up you agree with the Terms of Services and Privacy Policy</string>
+    <string name="login">LOGIN</string>
+    <string name="sign_in_with_mobile">Sign in with mobile</string>
+    <string name="already_have_an_account">ALREADY HAVE AN ACCOUNT?</string>
+    <string name="remember_me">Remember me</string>
+    <string name="need_an_account">Need an account?</string>
+    <string name="title_activity_splash">SplashActivity</string>
+    <string name="dummy_button">Dummy Button</string>
+    <string name="dummy_content">DUMMY\nCONTENT</string>
+    <string name="email">Email</string>
+    <string name="open">Open</string>
+    <string name="close">Close</string>
+</resources>

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:background="@color/orange"
+    tools:context=".view.SplashScreenUsingAnimation"
+    android:id="@+id/frameLayout_splash">
+
+    <FrameLayout
+        android:id="@+id/framelayout_welcome_page_top"
+        android:layout_width="match_parent"
+        android:layout_height="570dp">
+
+
+        <TextView
+            android:id="@+id/textview_logo"
+            style="@style/logo"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/logo_height"
+            android:layout_gravity="center"
+            android:layout_marginBottom="@dimen/margin_xx_large"
+            android:text="@string/RJT"
+            android:textColor="@color/white" />
+
+        <TextView
+            android:id="@+id/grocery_store"
+            style="@style/title_two_green"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="@dimen/margin_x_large"
+            android:text="@string/grocery_store" />
+    </FrameLayout>
+    <FrameLayout
+        android:id="@+id/frameLayout_welcome_page_bottom"
+        android:layout_gravity="bottom"
+        android:layout_width="match_parent"
+        android:layout_height="160dp">
+
+    </FrameLayout>
+
+</FrameLayout>
