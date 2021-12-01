@@ -1,5 +1,6 @@
 package com.example.project1groceryapp.view
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -29,15 +30,14 @@ class StartFragment : Fragment() {
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-
-        binding.frameLayoutStartPage.setOnClickListener{
-            activity?.supportFragmentManager?.beginTransaction()
-                ?.replace(R.id.frameLayout_splash,SignupFragment())?.addToBackStack("signupPage")
-                ?.commit()
-        }
-
-
         super.onViewCreated(view, savedInstanceState)
+        binding.frameLayoutStartPage.setOnClickListener{
+//            activity?.supportFragmentManager?.beginTransaction()
+//                ?.replace(R.id.framelayout_welcome_page_top,SignupFragment())?.addToBackStack("signupPage")
+//                ?.commit()
+
+                activity?.startActivity(Intent(activity, MainActivity::class.java))
+        }
     }
 
 

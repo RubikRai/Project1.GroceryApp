@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".view.ProductFragment"
+    android:id="@+id/linearlayout_product_page">
+
+    <FrameLayout
+        android:id="@+id/framelayout_product_page"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/orange">
+
+        <ImageView
+            android:id="@+id/imageview_arrow_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="10dp"
+            android:src="@drawable/ic_arrow_back" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerview_product"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="bottom"
+            android:layout_marginStart="@dimen/margin_x_large"
+            android:layout_marginEnd="@dimen/margin_medium" />
+
+    </FrameLayout>
+
+</LinearLayout>

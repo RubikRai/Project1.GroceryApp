@@ -25,5 +25,6 @@ class SplashScreenUsingAnimation : AppCompatActivity() {
         supportFragmentManager.beginTransaction()
             .replace(R.id.frameLayout_welcome_page_bottom, fragStart,"Login")
             .addToBackStack("backStart").commit()
+
     }
 }

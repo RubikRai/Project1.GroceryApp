@@ -64,7 +64,7 @@ class SignupFragment : Fragment(),SignUpView {
 
     override fun signUpSuccess(firstName: String, result: Boolean) {
         activity?.supportFragmentManager?.beginTransaction()?.replace(
-            R.id.frameLayout_splash,
+            R.id.framelayout_main_top,
             LoginFragment()
         )?.addToBackStack("goToSignUp")?.commit()
     }

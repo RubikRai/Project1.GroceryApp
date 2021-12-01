@@ -1,6 +1,8 @@
 package com.example.project1groceryapp.view
 
 import android.app.ProgressDialog
+import android.content.Context
+import android.content.SharedPreferences
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -24,9 +26,11 @@ import org.json.JSONObject
 class LoginFragment : Fragment(), LoginView {
 
     lateinit var binding:FragmentLoginBinding
+    lateinit var sharedPreferences: SharedPreferences
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        sharedPreferences = requireActivity().getSharedPreferences("UserManager", Context.MODE_PRIVATE)
 
     }
 
@@ -52,15 +56,19 @@ class LoginFragment : Fragment(), LoginView {
         binding.buttonLogin.setOnClickListener{
             loginPresenter.loginUser(binding.edittextEmail.text.toString(), binding.edittextPassword.text.toString())
         }
+
     }
 
 
     override fun loginSuccess(firstName: String) {
 
         activity?.supportFragmentManager?.beginTransaction()?.replace(
-            R.id.frameLayout_splash,
+            R.id.framelayout_main_top,
             HomepageFragment()
         )?.addToBackStack("goToSignUp")?.commit()
+
+        sharedPreferences.edit().putString("UserFName", firstName).putBoolean("LoggedIn", true).commit()
+
 
     }
 

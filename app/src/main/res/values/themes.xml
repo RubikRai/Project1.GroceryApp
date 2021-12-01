@@ -21,6 +21,20 @@
         <item name="android:textStyle">bold</item>
     </style>
 
+    <style name="logo_two">
+        <item name="fontFamily">@font/norwester</item>
+        <item name="android:textSize">75sp</item>
+        <item name="android:textColor">@color/lightorange</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="logo_three">
+        <item name="fontFamily">@font/norwester</item>
+        <item name="android:textSize">35sp</item>
+        <item name="android:textColor">@color/lightorange</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
     <style name="title_one_white">
         <item name="fontFamily">@font/norwester</item>
         <item name="android:textSize">@dimen/title_one</item>
@@ -91,6 +105,12 @@
     <style name="button_login">
         <item name="android:background">@drawable/login_button</item>
         <item name="android:textColor">@color/green</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="button_add_to_cart">
+        <item name="android:background">@drawable/add_to_cart_button</item>
+        <item name="android:textColor">@color/white</item>
         <item name="android:textStyle">bold</item>
     </style>
 

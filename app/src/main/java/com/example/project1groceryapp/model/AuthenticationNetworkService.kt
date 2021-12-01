@@ -2,6 +2,7 @@ package com.example.project1groceryapp.model
 
 import android.content.Context
 import android.graphics.ColorSpace
+import android.util.Log
 import android.widget.Toast
 import com.android.volley.Request
 import com.android.volley.toolbox.JsonObjectRequest
@@ -25,9 +26,12 @@ class AuthenticationNetworkService(private val context: Context):LoginModel {
             "https://grocery-second-app.herokuapp.com/api/auth/login",
             userLoginDetail,
             {response ->
-                        listener.loginResult(true, response.getString("token"))
+                Log.d("Login", "LoggedIn")
+
+                listener.loginResult(true, response.getString("token"))
             },
             {error ->
+                Log.d("Login",error.stackTraceToString())
                 listener.loginResult(false,"Error in login")
             }
         )

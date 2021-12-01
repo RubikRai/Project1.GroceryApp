@@ -3,13 +3,30 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Apolis Self Practive/Project1GroceryApp/Project1GroceryApp/app/src/main/res/drawable/add_to_cart_button.xml" value="0.23846153846153847" />
         <entry key="..\:/Apolis Self Practive/Project1GroceryApp/Project1GroceryApp/app/src/main/res/drawable/ic_cart.xml" value="0.3828125" />
+        <entry key="..\:/Apolis Self Practive/Project1GroceryApp/Project1GroceryApp/app/src/main/res/drawable/ic_profile.xml" value="0.3828125" />
+        <entry key="..\:/Apolis Self Practive/Project1GroceryApp/Project1GroceryApp/app/src/main/res/drawable/login_button.xml" value="0.2421875" />
+        <entry key="..\:/Apolis Self Practive/Project1GroceryApp/Project1GroceryApp/app/src/main/res/layout/activity_main.xml" value="0.2" />
         <entry key="..\:/Apolis Self Practive/Project1GroceryApp/Project1GroceryApp/app/src/main/res/layout/activity_navigation_drawer.xml" value="0.36666666666666664" />
         <entry key="..\:/Apolis Self Practive/Project1GroceryApp/Project1GroceryApp/app/src/main/res/layout/activity_splash_screen_using_animation.xml" value="0.36666666666666664" />
+        <entry key="..\:/Apolis Self Practive/Project1GroceryApp/Project1GroceryApp/app/src/main/res/layout/fragment_cart.xml" value="0.36666666666666664" />
+        <entry key="..\:/Apolis Self Practive/Project1GroceryApp/Project1GroceryApp/app/src/main/res/layout/fragment_category.xml" value="0.36666666666666664" />
         <entry key="..\:/Apolis Self Practive/Project1GroceryApp/Project1GroceryApp/app/src/main/res/layout/fragment_home_page.xml" value="0.36666666666666664" />
-        <entry key="..\:/Apolis Self Practive/Project1GroceryApp/Project1GroceryApp/app/src/main/res/layout/fragment_homepage.xml" value="0.1" />
+        <entry key="..\:/Apolis Self Practive/Project1GroceryApp/Project1GroceryApp/app/src/main/res/layout/fragment_homepage.xml" value="0.176" />
+        <entry key="..\:/Apolis Self Practive/Project1GroceryApp/Project1GroceryApp/app/src/main/res/layout/fragment_login.xml" value="0.4864864864864865" />
         <entry key="..\:/Apolis Self Practive/Project1GroceryApp/Project1GroceryApp/app/src/main/res/layout/fragment_navigation_drawer.xml" value="0.36666666666666664" />
-        <entry key="..\:/Apolis Self Practive/Project1GroceryApp/Project1GroceryApp/app/src/main/res/layout/nav_header.xml" value="0.36102564102564105" />
+        <entry key="..\:/Apolis Self Practive/Project1GroceryApp/Project1GroceryApp/app/src/main/res/layout/fragment_product.xml" value="0.1" />
+        <entry key="..\:/Apolis Self Practive/Project1GroceryApp/Project1GroceryApp/app/src/main/res/layout/fragment_signup.xml" value="0.18229166666666666" />
+        <entry key="..\:/Apolis Self Practive/Project1GroceryApp/Project1GroceryApp/app/src/main/res/layout/fragment_start.xml" value="0.36666666666666664" />
+        <entry key="..\:/Apolis Self Practive/Project1GroceryApp/Project1GroceryApp/app/src/main/res/layout/fragment_subcategory.xml" value="0.10526315789473684" />
+        <entry key="..\:/Apolis Self Practive/Project1GroceryApp/Project1GroceryApp/app/src/main/res/layout/nav_header.xml" value="0.4" />
+        <entry key="..\:/Apolis Self Practive/Project1GroceryApp/Project1GroceryApp/app/src/main/res/layout/view_holder_cart.xml" value="0.176" />
+        <entry key="..\:/Apolis Self Practive/Project1GroceryApp/Project1GroceryApp/app/src/main/res/layout/view_holder_category.xml" value="0.378125" />
+        <entry key="..\:/Apolis Self Practive/Project1GroceryApp/Project1GroceryApp/app/src/main/res/layout/view_holder_category_object.xml" value="0.378125" />
+        <entry key="..\:/Apolis Self Practive/Project1GroceryApp/Project1GroceryApp/app/src/main/res/layout/view_holder_home_page.xml" value="0.19014084507042253" />
+        <entry key="..\:/Apolis Self Practive/Project1GroceryApp/Project1GroceryApp/app/src/main/res/layout/view_holder_product.xml" value="0.176" />
+        <entry key="..\:/Apolis Self Practive/Project1GroceryApp/Project1GroceryApp/app/src/main/res/layout/view_holder_sub_category.xml" value="0.1" />
         <entry key="..\:/Apolis Self Practive/Project1GroceryApp/Project1GroceryApp/app/src/main/res/menu/drawer_list.xml" value="0.36102564102564105" />
       </map>
     </option>
