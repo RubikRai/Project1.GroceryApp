@@ -9,9 +9,9 @@ data class ApiProductResponse(
 data class Product(
     val __v: Int,
     val _id: String,
-    val catId: Int,
-    val created: String,
-    val description: String,
+    val catId: String,
+    val created: Float,
+    val description: Int,
     val image: String,
     val mrp: Int,
     val position: Int,

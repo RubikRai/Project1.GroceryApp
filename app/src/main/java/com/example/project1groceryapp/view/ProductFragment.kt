@@ -38,10 +38,13 @@ class ProductFragment : Fragment(), ProductContracts.ProductView {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
+        ////////////////////////////////////////////////////////////////////////
         subCatId = arguments?.getInt("subcategoryID")!!
         val productPresenter = ProductPresenter(this, ProductResponseServices(requireContext()))
         productPresenter.loadProductData(subCatId)
+
+        //////////////////////////////////////////////////////////////////////
+
         binding.recyclerviewProduct.layoutManager = LinearLayoutManager(requireContext(),
         LinearLayoutManager.VERTICAL,false)
         adapter = ProductAdapter(requireContext())

@@ -18,7 +18,6 @@ import com.example.project1groceryapp.model.CategoryResponseService
 import com.example.project1groceryapp.presenter.CategoryPresenter
 
 class HomepageFragment: Fragment(), CategoryContract.CatView {
-    //puto error
 
     lateinit var binding: FragmentHomepageBinding
     lateinit var adapter: CategoryAdapter
@@ -38,28 +37,6 @@ class HomepageFragment: Fragment(), CategoryContract.CatView {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-
-
-
-/*
-        binding.nav_view.setNavigationItemSelectedListener {
-            menuItem.isCheckable = true
-            when(menuItem.itemId){
-                R.id.user_name -> Toast.makeText(this, "Clicked on user name", Toast.LENGTH_SHORT).show()
-
-                R.id.profile -> Toast.makeText(this, "Clicked on profile", Toast.LENGTH_SHORT).show()
-
-                R.id.shop -> Toast.makeText(this, "Clicked on shop", Toast.LENGTH_SHORT).show()
-
-                R.id.my_order -> Toast.makeText(this, "Clicked on My order", Toast.LENGTH_SHORT).show()
-
-                R.id.logout -> Toast.makeText(this, "Clicked on logout", Toast.LENGTH_SHORT).show()
-            }
-            true
-        }
- */
-
-
         val categoryPresenter = CategoryPresenter(this,CategoryResponseService(requireContext()))
         categoryPresenter.loadCatData()
         binding.recyclerviewCategory.layoutManager = LinearLayoutManager(requireContext(),
@@ -68,21 +45,7 @@ class HomepageFragment: Fragment(), CategoryContract.CatView {
             adapter = CategoryAdapter()
             binding.recyclerviewCategory.adapter = adapter
     }
-/*
-    override fun onSupportNavigateUp():Boolean{
-        binding.drawerlayoutHomepage.openDrawer(binding.navView)
-        return true
-    }
 
-    override fun onBackPressed(){
-        if (binding.drawerlayoutHomepage.openDrawer(GravityCompat.START)){
-            binding.drawerlayoutHomepage.closeDrawer(GravityCompat.START)
-        }else{
-            super.onBackPressed()
-        }
-    }
-
- */
 
     override fun populateCatData(categories: List<Category>) {
 

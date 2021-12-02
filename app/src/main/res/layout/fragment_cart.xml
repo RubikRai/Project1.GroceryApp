@@ -3,15 +3,187 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".view.CartFragment"
     android:orientation="vertical"
-    android:background="@color/green">
+    android:background="@color/green"
+    android:id="@+id/linearlayout_cart">
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerview_cart"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="275dp"
+        android:background="@color/white"
+        android:layout_margin="@dimen/margin_medium"
         android:layout_gravity="bottom"
         />
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/margin_medium"
+        android:layout_marginRight="@dimen/margin_medium"
+        >
+
+        <TextView
+            android:id="@+id/textview_sub_total"
+            android:text="Sub Total"
+            style="@style/title_two_white"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"/>
+
+        <TextView
+            android:id="@+id/textview_sub_total_sum"
+            android:text="$ 180"
+            style="@style/title_two_white"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            />
+
+        <TextView
+            android:id="@+id/textview_tax"
+            android:text="Tax"
+            android:layout_marginTop="@dimen/margin_medium"
+            style="@style/title_two_white"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textview_sub_total"/>
+
+        <TextView
+            android:id="@+id/textview_tax_sum"
+            android:text="$ 18"
+            android:layout_marginTop="@dimen/margin_medium"
+            style="@style/title_two_white"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textview_sub_total_sum"
+            />
+
+        <TextView
+            android:id="@+id/textview_total"
+            android:text="Total"
+            android:layout_marginTop="@dimen/margin_medium"
+            style="@style/title_two_white"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textview_tax"/>
+
+        <TextView
+            android:id="@+id/textview_total_sum"
+            android:text="$ 198"
+            android:layout_marginTop="@dimen/margin_medium"
+            style="@style/title_two_white"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textview_tax_sum"
+            />
+
+        <TextView
+            android:id="@+id/textview_shipping_info_title"
+            android:text="Shipping Information"
+            android:gravity="center"
+            style="@style/title_one_theme"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_large"
+            app:layout_constraintTop_toBottomOf="@id/textview_total"/>
+
+        <EditText
+            android:id="@+id/textview_street_address"
+            android:text="123 Monroe Ave"
+            android:layout_marginTop="@dimen/margin_small"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@+id/textview_shipping_info_title"/>
+
+        <EditText
+            android:id="@+id/textview_city"
+            android:text="St.Paul"
+            app:layout_constraintTop_toBottomOf="@+id/textview_street_address"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"/>
+
+        <EditText
+            android:id="@+id/textview_state"
+            android:text="MN"
+            android:layout_marginStart="@dimen/margin_medium"
+            app:layout_constraintStart_toEndOf="@+id/textview_city"
+            app:layout_constraintTop_toBottomOf="@+id/textview_street_address"
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"/>
+
+        <EditText
+            android:id="@+id/textview_zip"
+            android:text="56001"
+            android:layout_marginStart="@dimen/margin_medium"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textview_street_address"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"/>
+
+        <TextView
+            android:id="@+id/textview_payment_method_title"
+            android:text="Payment Information"
+            android:gravity="center"
+            style="@style/title_one_theme"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_large"
+            app:layout_constraintTop_toBottomOf="@id/textview_city"/>
+
+        <RadioGroup
+            android:id="@+id/radiogroup_payment"
+            android:orientation="horizontal"
+            app:layout_constraintTop_toBottomOf="@+id/textview_payment_method_title"
+            android:layout_marginTop="@dimen/margin_medium"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <RadioButton
+                android:text="Credit Card"
+                android:layout_marginStart="@dimen/margin_small"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+            <RadioButton
+                android:text="Paypal"
+                android:layout_marginStart="@dimen/margin_small"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+            <RadioButton
+                android:text="Cash"
+                android:layout_marginStart="@dimen/margin_small"
+                android:checked="true"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+            <RadioButton
+                android:text="Bitcoin"
+                android:layout_marginStart="@dimen/margin_small"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+        </RadioGroup>
+
+        <Button
+            android:id="@+id/button_place_order"
+            app:layout_constraintTop_toBottomOf="@+id/radiogroup_payment"
+            android:text="PLACE ORDER"
+            android:textStyle="bold"
+            android:backgroundTint="@color/white"
+            android:textColor="@color/orange"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </LinearLayout>

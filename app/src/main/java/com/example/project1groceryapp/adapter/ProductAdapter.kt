@@ -30,7 +30,7 @@ class ProductAdapter(private val context: Context):RecyclerView.Adapter<ProductV
         val product = product[position]
         holder.bindData(product)
         holder.binding.buttonAddProductToCart.setOnClickListener {
-            cartDBHelper.addProduct(product, 1)
+            cartDBHelper.addProduct(product)
         }
         holder.itemView.setOnClickListener{
             if(this::onProductSelected.isInitialized){
