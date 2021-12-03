@@ -8,10 +8,12 @@ import android.widget.Adapter
 import androidx.recyclerview.widget.RecyclerView
 import com.example.project1groceryapp.data.CartProduct
 import com.example.project1groceryapp.databinding.ViewHolderCartBinding
+import com.example.project1groceryapp.model.CartDBHelper
 import com.example.project1groceryapp.view.CartViewHolder
 
-abstract class CartAdapter(val products: ArrayList<CartProduct>):RecyclerView.Adapter<CartViewHolder>(),
-    Adapter {
+class CartAdapter(var products: ArrayList<CartProduct>, context: Context):RecyclerView.Adapter<CartViewHolder>(){
+
+    private var cartDBHelper: CartDBHelper = CartDBHelper(context)
 
     lateinit var onCartProductSelected:(CartProduct, Int) -> Unit
     fun setOnCartProductSelectedListener(listener: (CartProduct, Int) -> Unit){
@@ -33,8 +35,18 @@ abstract class CartAdapter(val products: ArrayList<CartProduct>):RecyclerView.Ad
                 onCartProductSelected(products[position], position)
             }
         }
+
+        holder.binding.buttonRemove.setOnClickListener {
+            cartDBHelper.deleteProduct(products[position])
+            refreshData()
+        }
     }
 
 
     override fun getItemCount() = products.size
+
+    private fun refreshData(){
+        products = cartDBHelper.getProducts()
+        notifyDataSetChanged()
+    }
 }

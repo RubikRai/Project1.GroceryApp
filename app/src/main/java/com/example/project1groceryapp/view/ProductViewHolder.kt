@@ -9,7 +9,7 @@ class ProductViewHolder(val binding: ViewHolderProductBinding):RecyclerView.View
 
     fun bindData(product: Product){
         binding.textviewProductName.text = product.productName
-        val imageUrl ="https://rjtmobile.com/grocery/images/"
+        val imageUrl ="https://rjtmobile.com/grocery/images/${product.image}"
         Picasso.get()
             .load(imageUrl)
             .into(binding.imageviewProduct)

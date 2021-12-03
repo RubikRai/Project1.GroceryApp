@@ -5,10 +5,11 @@ import android.content.Context
 import android.database.Cursor
 import android.database.sqlite.SQLiteDatabase
 import android.database.sqlite.SQLiteOpenHelper
+import android.util.Log
 import com.example.project1groceryapp.data.CartProduct
 import com.example.project1groceryapp.data.Product
 
-class CartDBHelper(private val context: Context): SQLiteOpenHelper(context, DATABASE_NAME, null, 3) {
+class CartDBHelper(private val context: Context): SQLiteOpenHelper(context, DATABASE_NAME, null, 4) {
     override fun onCreate(db: SQLiteDatabase?) {
         val CREATE_CART_TABLE =
             ("CREATE TABLE " + TABLE_NAME + " ( " + KEY_ID + " VARCHAR PRIMARY KEY, "
@@ -38,13 +39,13 @@ class CartDBHelper(private val context: Context): SQLiteOpenHelper(context, DATA
             contentValues.put(KEY_ID, product._id)
             contentValues.put(KEY_PRODUCT_NAME, product.productName)
             contentValues.put(KEY_PRODUCT_IMAGE, product.image)
-            contentValues.put(KEY_QUANTITY, product.quantity)
+            contentValues.put(KEY_QUANTITY, 1)
             contentValues.put(KEY_PRICE, product.price)
 
             return db.insert(TABLE_NAME, null, contentValues)
             db.close()
         } else {
-            return updateProduct(product, productInCart).toLong()
+            return updateProduct(product, 1).toLong()
         }
     }
 
@@ -54,10 +55,10 @@ class CartDBHelper(private val context: Context): SQLiteOpenHelper(context, DATA
         contentValues.put(KEY_ID, product._id)
         contentValues.put(KEY_PRODUCT_NAME, product.productName)
         contentValues.put(KEY_PRODUCT_IMAGE, product.image)
-        contentValues.put(KEY_QUANTITY, product.quantity + addedQty)
+        contentValues.put(KEY_QUANTITY, inCart(product) + addedQty)
         contentValues.put(KEY_PRICE, product.price)
-
-        return db.update(TABLE_NAME, contentValues, "ID = " + product._id,null)
+        Log.d("Incart", inCart(product).toString())
+        return db.update(TABLE_NAME, contentValues, """ID = '${product._id}'""",null)
         db.close()
     }
 
@@ -65,7 +66,7 @@ class CartDBHelper(private val context: Context): SQLiteOpenHelper(context, DATA
         val db = readableDatabase
 
         val productId = product._id
-        val selectQuery = "SELECT * FROM $TABLE_NAME WHERE $KEY_ID = $productId"
+        val selectQuery = """SELECT * FROM $TABLE_NAME WHERE $KEY_ID = '$productId'"""
         var cursor: Cursor? = null
 
         try {
@@ -87,9 +88,9 @@ class CartDBHelper(private val context: Context): SQLiteOpenHelper(context, DATA
     }
 
 
-    fun getProducts(): ArrayList<Product>{
+    fun getProducts(): ArrayList<CartProduct>{
         val db = this.readableDatabase
-        val cart: ArrayList<Product> = ArrayList()
+        val cart: ArrayList<CartProduct> = ArrayList()
         val selectQuery = "SELECT * FROM $TABLE_NAME"
         var cursor: Cursor? = null
 
@@ -99,7 +100,7 @@ class CartDBHelper(private val context: Context): SQLiteOpenHelper(context, DATA
             e.printStackTrace()
         }
 
-        var productId: Int
+        var productId: String
         var productName: String
         var productImage: String
         var productPrice: Float
@@ -107,12 +108,11 @@ class CartDBHelper(private val context: Context): SQLiteOpenHelper(context, DATA
 
         if (cursor!!.moveToFirst()){
             do {
-                productId = cursor.getInt(cursor.getColumnIndexOrThrow("$KEY_ID"))
+                productId = cursor.getString(cursor.getColumnIndexOrThrow("$KEY_ID"))
                 productName = cursor.getString(cursor.getColumnIndexOrThrow("$KEY_PRODUCT_NAME"))
                 productImage = cursor.getString(cursor.getColumnIndexOrThrow("$KEY_PRODUCT_IMAGE"))
                 productPrice = cursor.getFloat(cursor.getColumnIndexOrThrow("$KEY_PRICE"))
                 productQuantity = cursor.getInt(cursor.getColumnIndexOrThrow("$KEY_QUANTITY"))
-
 
                 val product = CartProduct(productId,productName, productImage, productPrice, productQuantity)
                 cart.add(product)
@@ -122,13 +122,11 @@ class CartDBHelper(private val context: Context): SQLiteOpenHelper(context, DATA
     }
 
 
-    fun deleteProduct(product: Product): Int{
+    fun deleteProduct(product: CartProduct): Int{
         val db = writableDatabase
         val contentValues = ContentValues()
         contentValues.put(KEY_ID, product._id)
-
-        return db.delete(TABLE_NAME, "id = " + product._id, null)
-        db.close()
+        return db.delete(TABLE_NAME, "id = '${product._id}'", null)
     }
 
 

@@ -10,7 +10,7 @@ class CartViewHolder(val binding: ViewHolderCartBinding):RecyclerView.ViewHolder
 
     fun bindData(product: CartProduct){
         binding.textviewProductName.text = product.Name
-        binding.textviewQuantity.text = product.Quantity.toString()
+        binding.textviewQuantityNumber.text = product.Quantity.toString()
 
         Picasso.get()
             .load("https://rjtmobile.com/grocery/images/" + product.Image)

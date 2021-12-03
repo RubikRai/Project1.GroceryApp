@@ -17,28 +17,28 @@ class CartPresenter(val cartFragment: CartFragment, val context: Context): CartC
     lateinit var requestQueue: RequestQueue
 
     override fun postOrder(orderData: CheckOut) {
-        val url = "https://grocery-second-app.herokuapp.com/api/orders"
-        val mapper = jacksonObjectMapper()
-        val params = JSONObject(mapper.writeValueAsString(orderData))
-
-        requestQueue = Volley.newRequestQueue(context)
-
-        val request = JsonObjectRequest(
-            Request.Method.POST,
-            url,
-            params,
-            {response: JSONObject ->
-                val msg = response.getString("message")
-                Log.d("Order", "$msg")
-                Toast.makeText(context, "Order has been placed successfully! Thank you for your business!", Toast.LENGTH_LONG).show()
-                cartFragment.clearCart()
-            },
-            { error ->
-//                Toast.makeText(context, "Error: $error", Toast.LENGTH_SHORT).show()
-                Log.d("Order", "$error")
-            }
-        )
-        requestQueue.add(request)
+//        val url = "https://grocery-second-app.herokuapp.com/api/orders"
+//        val mapper = jacksonObjectMapper()
+//        val params = JSONObject(mapper.writeValueAsString(orderData))
+//
+//        requestQueue = Volley.newRequestQueue(context)
+//
+//        val request = JsonObjectRequest(
+//            Request.Method.POST,
+//            url,
+//            params,
+//            {response: JSONObject ->
+//                val msg = response.getString("message")
+//                Log.d("Order", "$msg")
+//                Toast.makeText(context, "Order has been placed successfully! Thank you for your business!", Toast.LENGTH_LONG).show()
+//                cartFragment.clearCart()
+//            },
+//            { error ->
+////                Toast.makeText(context, "Error: $error", Toast.LENGTH_SHORT).show()
+//                Log.d("Order", "$error")
+//            }
+//        )
+//        requestQueue.add(request)
     }
 
 }

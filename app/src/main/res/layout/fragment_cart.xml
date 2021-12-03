@@ -8,13 +8,42 @@
     android:orientation="vertical"
     android:background="@color/green"
     android:id="@+id/linearlayout_cart">
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:text="CART"
+            style="@style/title_one_theme"
+            android:layout_marginTop="4dp"
+            android:layout_marginStart="16dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <ImageView
+            android:id="@+id/cart_close"
+            android:layout_marginTop="4dp"
+            android:layout_marginEnd="16dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:src="@drawable/ic_close"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerview_cart"
         android:layout_width="match_parent"
-        android:layout_height="275dp"
+        android:layout_height="255dp"
         android:background="@color/white"
-        android:layout_margin="@dimen/margin_medium"
+        android:layout_marginStart="@dimen/margin_medium"
+        android:layout_marginEnd="@dimen/margin_medium"
+        android:layout_marginTop="4dp"
+        android:layout_marginBottom="4dp"
         android:layout_gravity="bottom"
         />
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -89,7 +118,7 @@
             android:id="@+id/textview_shipping_info_title"
             android:text="Shipping Information"
             android:gravity="center"
-            style="@style/title_one_theme"
+            style="@style/title_two_theme"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/margin_large"
@@ -98,9 +127,9 @@
         <EditText
             android:id="@+id/textview_street_address"
             android:text="123 Monroe Ave"
-            android:layout_marginTop="@dimen/margin_small"
+            android:layout_marginTop="4dp"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="38dp"
             app:layout_constraintTop_toBottomOf="@+id/textview_shipping_info_title"/>
 
         <EditText
@@ -109,7 +138,7 @@
             app:layout_constraintTop_toBottomOf="@+id/textview_street_address"
             app:layout_constraintStart_toStartOf="parent"
             android:layout_width="150dp"
-            android:layout_height="wrap_content"/>
+            android:layout_height="38dp"/>
 
         <EditText
             android:id="@+id/textview_state"
@@ -118,7 +147,7 @@
             app:layout_constraintStart_toEndOf="@+id/textview_city"
             app:layout_constraintTop_toBottomOf="@+id/textview_street_address"
             android:layout_width="50dp"
-            android:layout_height="wrap_content"/>
+            android:layout_height="38dp"/>
 
         <EditText
             android:id="@+id/textview_zip"
@@ -127,23 +156,23 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textview_street_address"
             android:layout_width="150dp"
-            android:layout_height="wrap_content"/>
+            android:layout_height="38dp"/>
 
         <TextView
             android:id="@+id/textview_payment_method_title"
             android:text="Payment Information"
             android:gravity="center"
-            style="@style/title_one_theme"
+            style="@style/title_two_theme"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/margin_large"
+            android:layout_marginTop="@dimen/margin_small"
             app:layout_constraintTop_toBottomOf="@id/textview_city"/>
 
         <RadioGroup
             android:id="@+id/radiogroup_payment"
             android:orientation="horizontal"
             app:layout_constraintTop_toBottomOf="@+id/textview_payment_method_title"
-            android:layout_marginTop="@dimen/margin_medium"
+            android:layout_marginTop="@dimen/margin_small"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 

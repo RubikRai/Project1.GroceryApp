@@ -39,11 +39,17 @@ class MainActivity : AppCompatActivity() {
         binding.navView.setNavigationItemSelectedListener {
             when(it.itemId){
                 R.id.profile -> Toast.makeText(applicationContext, "This is user profile", Toast.LENGTH_SHORT).show()
-                R.id.cart -> Toast.makeText(applicationContext, "This is your cart", Toast.LENGTH_SHORT).show()
+                R.id.cart ->
+                    supportFragmentManager.beginTransaction().replace(R.id.framelayout_main_top, CartFragment(), "GoToCart").commit()
                 R.id.my_order -> Toast.makeText(applicationContext, "This is your order list", Toast.LENGTH_SHORT).show()
                 R.id.logout -> showLogOutMessage()
             }
             true
+        }
+
+        binding.imageviewCart.setOnClickListener{
+            supportFragmentManager.beginTransaction().replace(R.id.framelayout_main_top,
+                CartFragment(),"OpenCart").addToBackStack("GoBacktoMenu").commit()
         }
     }
 

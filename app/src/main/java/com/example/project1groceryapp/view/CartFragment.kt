@@ -11,19 +11,21 @@ import com.example.project1groceryapp.R
 import com.example.project1groceryapp.adapter.CartAdapter
 import com.example.project1groceryapp.contracts.CartContract
 import com.example.project1groceryapp.contracts.ProductContracts
+import com.example.project1groceryapp.data.CartProduct
 import com.example.project1groceryapp.data.Product
 import com.example.project1groceryapp.databinding.FragmentCartBinding
 import com.example.project1groceryapp.model.CartDBHelper
 import com.example.project1groceryapp.presenter.CartPresenter
 import com.example.project1groceryapp.presenter.ProductPresenter
+import kotlinx.android.synthetic.main.fragment_homepage.*
 
 class CartFragment : Fragment() {
 
     lateinit var binding: FragmentCartBinding
-    lateinit var adapter: Adapter
+    lateinit var adapter: CartAdapter
 
 
-    var cart = ArrayList<Product>()
+    var cart = ArrayList<CartProduct>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -46,11 +48,28 @@ class CartFragment : Fragment() {
 
         binding.recyclerviewCart.layoutManager = LinearLayoutManager(requireContext(),
         LinearLayoutManager.VERTICAL, false)
-        adapter = CartAdapter(cart)
-        binding.recyclerviewCart.adapter = adapter
 
         val databaseHandler = createDataBaseHandler()
         cart = databaseHandler.getProducts()
+        val subtotal = getSubTotal(cart)
+        binding.textviewSubTotalSum.text = subtotal.toString()
+        binding.textviewTaxSum.text = (subtotal * 0.10).toString()
+        binding.textviewTotalSum.text = (subtotal + (subtotal * 0.10)).toString()
+        adapter = CartAdapter(cart, requireContext())
+        binding.recyclerviewCart.adapter = adapter
+
+        binding.cartClose.setOnClickListener{
+            activity?.supportFragmentManager?.beginTransaction()?.replace(R.id.framelayout_main_top,
+                HomepageFragment(), "CloseCart")?.commit()
+        }
+    }
+
+    private fun getSubTotal(productList: List<CartProduct>): Float{
+        var total = 0.00
+        for(i in productList){
+            total += (i.Quantity * i.Price)
+        }
+        return total.toFloat()
     }
 
     private fun createDataBaseHandler(): CartDBHelper {
